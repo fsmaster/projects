@@ -1,0 +1,61 @@
+{
+  "conclusion": "BUG_A reproduced in 1 of 112 closed open periods: two metric_alert.resolved webhooks and no metric_alert.critical for one open period. DROP in 1 period(s): metric_alert.critical never sent, only metric_alert.resolved.",
+  "cycles": 112,
+  "monitors": 10,
+  "run_seconds": 1665,
+  "open_periods": 112,
+  "counts": {
+    "OK": 110,
+    "BUG_A": 1,
+    "DROP": 1,
+    "OTHER": 0,
+    "OPEN": 0
+  },
+  "latency_seconds": {
+    "critical_after_period_start": {
+      "p50": 29.9,
+      "p95": 42.5,
+      "max": 58.7
+    },
+    "resolved_after_period_end": {
+      "p50": 4.3,
+      "max": 7.2
+    },
+    "open_period_length": {
+      "min": 13.4,
+      "max": 96.1
+    }
+  },
+  "abnormal_periods": [
+    {
+      "class": "BUG_A",
+      "monitor": 7,
+      "open_period_length": 40.6,
+      "webhooks": [
+        {
+          "action": "resolved",
+          "seconds_after_period_start": 43.2
+        },
+        {
+          "action": "resolved",
+          "seconds_after_period_start": 44.7
+        }
+      ]
+    },
+    {
+      "class": "DROP",
+      "monitor": 9,
+      "open_period_length": 13.4,
+      "webhooks": [
+        {
+          "action": "resolved",
+          "seconds_after_period_start": 19.4
+        }
+      ]
+    }
+  ],
+  "signatures": {
+    "ok": 223,
+    "failed": 0
+  }
+}

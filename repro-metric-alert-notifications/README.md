@@ -17,6 +17,9 @@ BUG_A here).
   action aimed at the internal integration.
 - `run.py` sends, per monitor, a burst of 4 errors every 150 s. The monitors
   are staggered by 15 s.
+- `report.py` joins the webhooks with Sentry's open periods and writes
+  `results/summary.json` (classes, latency). It also finds periods that got
+  too few webhooks (DROP), which `analyze.py` cannot see.
 - `analyze.py` groups the webhooks by monitor and open period and labels each
   period OK, BUG_A, OPEN or OTHER. Its output uses generated labels and
   relative seconds only.
@@ -32,6 +35,7 @@ python3 receiver.py        # behind an HTTPS reverse proxy
 python3 setup.py
 python3 run.py             # needs sentry-sdk
 python3 analyze.py
+python3 report.py
 ```
 
 ## API notes
@@ -44,4 +48,4 @@ python3 analyze.py
 
 ## Results
 
-See [results/](results/).
+See [results/SUMMARY.md](results/SUMMARY.md).

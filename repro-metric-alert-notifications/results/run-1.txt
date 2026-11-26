@@ -81,9 +81,47 @@ monitor  period  class  webhooks (action@seconds)
       4  m4-p10  OK     critical@1685.0 resolved@1721.6
      10  m10-p7  OK     critical@1687.2 resolved@1711.5
       1  m1-p10  OK     critical@1709.8 resolved@1744.3
-      2  m2-p10  OPEN   critical@1715.0
-      3  m3-p10  OPEN   critical@1715.8
+      2  m2-p10  OK     critical@1715.0 resolved@1754.8
+      3  m3-p10  OK     critical@1715.8 resolved@1753.0
+      7  m7-p8   OK     critical@1783.6 resolved@1830.6
+      5  m5-p10  OK     critical@1814.8 resolved@1840.2
+      8  m8-p8   OK     critical@1817.9 resolved@1839.9
+      6  m6-p8   OK     critical@1825.3 resolved@1837.9
+      9  m9-p8   OTHER  resolved@1850.5
+      2  m2-p11  OK     critical@1861.2 resolved@1872.7
+      1  m1-p11  OK     critical@1861.3 resolved@1866.4
+      4  m4-p11  OK     critical@1870.6 resolved@1904.8
+     10  m10-p8  OK     critical@1870.7 resolved@1899.6
+      3  m3-p11  OK     critical@1889.0 resolved@1936.7
+      6  m6-p9   OK     critical@1919.0 resolved@1953.5
+      5  m5-p11  OK     critical@1919.9 resolved@1946.1
+      9  m9-p9   OK     critical@1921.3 resolved@1979.7
+      7  m7-p9   OK     critical@1952.4 resolved@1983.1
+      8  m8-p9   OK     critical@1980.6 resolved@2016.5
+     10  m10-p9  OK     critical@1981.6 resolved@2017.5
+      1  m1-p12  OK     critical@2008.7 resolved@2040.9
+      4  m4-p12  OK     critical@2010.2 resolved@2025.8
+      3  m3-p12  OK     critical@2010.8 resolved@2057.8
+      2  m2-p12  OK     critical@2012.5 resolved@2057.2
+      7  m7-p10  OK     critical@2071.2 resolved@2107.9
+      5  m5-p12  OK     critical@2100.3 resolved@2128.8
+      9  m9-p10  OK     critical@2101.0 resolved@2165.0
+      6  m6-p10  OK     critical@2101.7 resolved@2130.2
+      8  m8-p10  OK     critical@2102.3 resolved@2137.3
+      2  m2-p13  OK     critical@2130.6 resolved@2178.5
+      1  m1-p13  OK     critical@2131.1 resolved@2168.3
+     10  m10-p10 OK     critical@2163.9 resolved@2193.1
+      3  m3-p13  OK     critical@2190.5 resolved@2232.1
+      4  m4-p13  OK     critical@2190.8 resolved@2202.0
+      9  m9-p11  OK     critical@2220.8 resolved@2265.5
+      6  m6-p11  OK     critical@2222.7 resolved@2247.8
+      5  m5-p13  OK     critical@2225.1 resolved@2248.0
+      7  m7-p11  OK     critical@2250.7 resolved@2281.3
+      8  m8-p11  OK     critical@2281.3 resolved@2332.1
+     10  m10-p11 OK     critical@2284.6 resolved@2313.9
+      1  m1-p14  OK     critical@2311.3 resolved@2348.3
+      2  m2-p14  OK     critical@2316.0 resolved@2354.4
 
-webhooks: 166  span: 1744 s  periods: 84
-classes: BUG_A=1, OK=81, OPEN=2
-signatures: 146 ok, 0 failed, 20 not checked
+webhooks: 243  span: 2354 s  periods: 122
+classes: BUG_A=1, OK=120, OTHER=1
+signatures: 223 ok, 0 failed, 20 not checked

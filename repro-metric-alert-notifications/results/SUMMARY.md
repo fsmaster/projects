@@ -1,42 +1,68 @@
 # Results
 
-BUG_A reproduced: 1 of 82 closed open periods in the first 29 minutes of the
-run. Full per-period output is in [run-1.txt](run-1.txt).
+Two kinds of wrong notification showed up in one 28-minute run (112 bursts,
+112 open periods). In both, the integration never got `metric_alert.critical`.
+Numbers are in [summary.json](summary.json), per-period webhook output in
+[run-1.txt](run-1.txt).
 
-| Open periods | OK | BUG_A | Other | Still open |
+| Open periods | OK | BUG_A | DROP | Other |
 |---|---|---|---|---|
-| 84 | 81 | 1 | 0 | 2 |
+| 112 | 110 | 1 | 1 | 0 |
 
-All 146 webhooks checked for a signature passed. The receiver answered every
-request with 204.
+- **BUG_A**: two `metric_alert.resolved` and no `metric_alert.critical`.
+- **DROP**: one `metric_alert.resolved` and no `metric_alert.critical`.
 
-## The hit: monitor 7, its 6th open period
+All 223 signed webhooks passed the signature check. The receiver answered
+every request with 204.
 
-Seconds are relative to the start of that open period.
+## Normal timing
+
+| | p50 | p95 | max |
+|---|---|---|---|
+| `critical` webhook after the period starts | 29.9 s | 42.5 s | 58.7 s |
+| `resolved` webhook after the period ends | 4.3 s | | 7.2 s |
+
+Open periods lasted 13.4 to 96.1 s. So the "opened" notification normally
+goes out about 30 s late, and the "closed" one about 4 s late. A period
+shorter than that 30 s gap is closed before its "opened" notification is
+handled.
+
+## BUG_A: monitor 7, open period of 40.6 s
+
+Seconds are relative to the start of the open period.
 
 | Time | What happened |
 |---|---|
-| 0 s | Open period starts |
-| +41 s | Open period ends |
-| +43 s | Webhook `metric_alert.resolved` |
-| +44 s | Webhook `metric_alert.resolved` (second one, 1.4 s later) |
+| 0 s | Open period starts; issue activity "regression" |
+| +40.6 s | Open period ends; issue activity "resolved" |
+| +41.1 s | Automation fires twice (both fires fall after the end) |
+| +43.2 s | Webhook `resolved`, text says the count was 4.0 |
+| +44.7 s | Webhook `resolved`, text says the count was 0.0 |
 
-No `metric_alert.critical` was sent for this period. Both webhooks carried
-the same open period, with status resolved and the same close time. The issue
-page shows the period as a normal regress-then-resolve.
+The first webhook is the "opened" notification with the wrong action: its
+text carries the breaching value (4.0), but its action and status say
+resolved. The automation did not fire at all while the period was open.
 
-For comparison, the five earlier periods of the same monitor each got one
-`critical` about 30 s after the period started and one `resolved` a few
-seconds after it ended. Those periods lasted 56 to 70 s. The BUG_A period was
-the shortest of the run at 41 s.
+## DROP: monitor 9, open period of 13.4 s
+
+| Time | What happened |
+|---|---|
+| 0 s | Open period starts; issue activity "regression" |
+| +13.4 s | Open period ends; issue activity "resolved" |
+| +15.3 s | Automation fires once |
+| +19.4 s | Webhook `resolved`, text says the count was 0.0 |
+
+The automation fired once, not twice, and Sentry's own request log has no
+`critical` attempt for this period. The "opened" notification was never
+produced.
 
 ## Reading
 
-Likely cause, not confirmed: the "opened" notification is built from the
-state of the open period at send time, not from the transition that triggered
-it. When a period closes before its "opened" notification goes out, that
-notification is sent as `resolved`, so the integration gets two `resolved`
-and never sees `critical`.
+Likely cause, not confirmed in code: the automation handles the "opened"
+transition late, and by then it reads the current state of the open period,
+not the transition that triggered it. If the period has already closed, the
+"opened" notification either goes out as `resolved` (BUG_A) or is not sent at
+all (DROP). Both hits were among the shortest periods of the run.
 
 ## Screenshots
 
