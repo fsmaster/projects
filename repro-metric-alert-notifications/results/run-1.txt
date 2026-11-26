@@ -32,9 +32,58 @@ monitor  period  class  webhooks (action@seconds)
       1  m1-p5   OK     critical@931.8 resolved@961.8
      10  m10-p2  OK     critical@960.0 resolved@992.1
       4  m4-p5   OK     critical@960.9 resolved@1001.0
-      3  m3-p5   OPEN   critical@991.8
-      6  m6-p3   OPEN   critical@1018.8
+      3  m3-p5   OK     critical@991.8 resolved@1035.0
+      6  m6-p3   OK     critical@1018.8 resolved@1048.3
+      9  m9-p3   OK     critical@1021.0 resolved@1078.9
+      5  m5-p5   OK     critical@1021.1 resolved@1050.2
+      7  m7-p3   OK     critical@1051.6 resolved@1089.0
+     10  m10-p3  OK     critical@1083.2 resolved@1111.9
+      8  m8-p3   OK     critical@1083.8 resolved@1119.0
+      4  m4-p6   OK     critical@1108.9 resolved@1120.4
+      1  m1-p6   OK     critical@1111.2 resolved@1145.9
+      2  m2-p6   OK     critical@1111.7 resolved@1151.9
+      3  m3-p6   OK     critical@1114.8 resolved@1154.1
+      7  m7-p4   OK     critical@1170.9 resolved@1201.8
+      5  m5-p6   OK     critical@1199.6 resolved@1226.3
+      8  m8-p4   OK     critical@1200.4 resolved@1250.1
+      9  m9-p4   OK     critical@1202.5 resolved@1264.2
+      6  m6-p4   OK     critical@1203.3 resolved@1232.4
+      2  m2-p7   OK     critical@1232.4 resolved@1272.0
+      1  m1-p7   OK     critical@1232.4 resolved@1265.2
+     10  m10-p4  OK     critical@1262.1 resolved@1296.7
+      4  m4-p7   OK     critical@1289.7 resolved@1303.9
+      3  m3-p7   OK     critical@1291.0 resolved@1336.3
+      9  m9-p5   OK     critical@1320.2 resolved@1368.6
+      6  m6-p5   OK     critical@1322.6 resolved@1352.2
+      5  m5-p7   OK     critical@1324.8 resolved@1345.3
+      7  m7-p5   OK     critical@1350.4 resolved@1384.2
+      4  m4-p8   OK     critical@1381.4 resolved@1456.7
+     10  m10-p5  OK     critical@1381.7 resolved@1415.6
+      8  m8-p5   OK     critical@1382.7 resolved@1415.1
+      3  m3-p8   OK     critical@1410.9 resolved@1469.4
+      1  m1-p8   OK     critical@1411.7 resolved@1462.8
+      2  m2-p8   OK     critical@1412.1 resolved@1468.4
+      5  m5-p8   OK     critical@1498.8 resolved@1529.0
+      6  m6-p6   OK     critical@1500.3 resolved@1529.6
+      9  m9-p6   OK     critical@1502.3 resolved@1545.1
+      7  m7-p6   BUG_A  resolved@1502.9 resolved@1504.3
+      8  m8-p6   OK     critical@1503.0 resolved@1536.3
+      1  m1-p9   OK     critical@1531.2 resolved@1561.5
+      2  m2-p9   OK     critical@1531.8 resolved@1576.5
+     10  m10-p6  OK     critical@1562.2 resolved@1591.7
+      4  m4-p9   OK     critical@1562.3 resolved@1613.6
+      3  m3-p9   OK     critical@1594.8 resolved@1631.8
+      5  m5-p9   OK     critical@1622.9 resolved@1648.9
+      6  m6-p7   OK     critical@1623.5 resolved@1648.8
+      7  m7-p7   OK     critical@1652.0 resolved@1680.5
+      9  m9-p7   OK     critical@1653.1 resolved@1668.6
+      8  m8-p7   OK     critical@1682.0 resolved@1719.3
+      4  m4-p10  OK     critical@1685.0 resolved@1721.6
+     10  m10-p7  OK     critical@1687.2 resolved@1711.5
+      1  m1-p10  OK     critical@1709.8 resolved@1744.3
+      2  m2-p10  OPEN   critical@1715.0
+      3  m3-p10  OPEN   critical@1715.8
 
-webhooks: 68  span: 1019 s  periods: 35
-classes: OK=33, OPEN=2
-signatures: 48 ok, 0 failed, 20 not checked
+webhooks: 166  span: 1744 s  periods: 84
+classes: BUG_A=1, OK=81, OPEN=2
+signatures: 146 ok, 0 failed, 20 not checked
