@@ -1,0 +1,40 @@
+monitor  period  class  webhooks (action@seconds)
+      3  m3-p1   OK     critical@0.0 resolved@31.0
+      4  m4-p1   OK     critical@31.9 resolved@62.5
+      5  m5-p1   OK     critical@59.3 resolved@112.6
+      1  m1-p1   OK     critical@62.8 resolved@104.7
+      2  m2-p1   OK     critical@151.5 resolved@192.5
+      4  m4-p2   OK     critical@211.3 resolved@248.7
+      3  m3-p2   OK     critical@238.7 resolved@271.6
+      5  m5-p2   OK     critical@240.5 resolved@287.6
+      1  m1-p2   OK     critical@300.5 resolved@373.8
+      2  m2-p2   OK     critical@394.2 resolved@432.8
+      2  m2-p3   OK     critical@633.4 resolved@674.0
+      1  m1-p3   OK     critical@634.5 resolved@666.0
+      4  m4-p3   OK     critical@662.6 resolved@729.8
+      3  m3-p3   OK     critical@689.9 resolved@736.4
+      6  m6-p1   OK     critical@717.9 resolved@752.2
+      5  m5-p3   OK     critical@720.5 resolved@745.9
+      7  m7-p1   OK     critical@750.2 resolved@787.0
+      9  m9-p1   OK     critical@752.7 resolved@770.4
+      4  m4-p4   OK     critical@780.3 resolved@823.1
+      8  m8-p1   OK     critical@781.7 resolved@817.0
+     10  m10-p1  OK     critical@785.5 resolved@816.5
+      2  m2-p4   OK     critical@811.3 resolved@858.9
+      3  m3-p4   OK     critical@812.3 resolved@859.8
+      1  m1-p4   OK     critical@814.9 resolved@843.7
+      7  m7-p2   OK     critical@869.1 resolved@913.3
+      5  m5-p4   OK     critical@905.7 resolved@927.9
+      6  m6-p2   OK     critical@906.5 resolved@927.4
+      2  m2-p5   OK     critical@928.8 resolved@977.4
+      8  m8-p2   OK     critical@930.9 resolved@935.7
+      9  m9-p2   OK     critical@931.0 resolved@953.5
+      1  m1-p5   OK     critical@931.8 resolved@961.8
+     10  m10-p2  OK     critical@960.0 resolved@992.1
+      4  m4-p5   OK     critical@960.9 resolved@1001.0
+      3  m3-p5   OPEN   critical@991.8
+      6  m6-p3   OPEN   critical@1018.8
+
+webhooks: 68  span: 1019 s  periods: 35
+classes: OK=33, OPEN=2
+signatures: 48 ok, 0 failed, 20 not checked
